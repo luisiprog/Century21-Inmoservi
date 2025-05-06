@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Century21 INMOSERVI - Especialistas en Bienes Raíces</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 180px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .search-box input, .search-box select {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            flex-grow: 1;
+            min-width: 200px;
+        }
+        
+        .search-box button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        /* Featured Properties */
+        .featured {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #003366;
+        }
+        
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .property-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .property-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .property-info {
+            padding: 15px;
+        }
+        
+        .property-price {
+            color: #ff6600;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            color: #ff6600;
+            margin-bottom: 15px;
+        }
+        
+        /* Agents Section */
+        .agents {
+            padding: 50px 0;
+        }
+        
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .agent-card {
+            text-align: center;
+        }
+        
+        .agent-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid #ff6600;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #003366;
+            color: white;
+            padding: 50px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 50px 0;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .contact-form button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <img src="logo-inmoservi.png" alt="Century21 INMOSERVI" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#propiedades">Propiedades</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#agentes">Agentes</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Encuentra tu propiedad ideal con Century21 INMOSERVI</h1>
+            <p>Expertos en bienes raíces con más de 10 años de experiencia en el mercado venezolano</p>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Ubicación">
+                <select>
+                    <option value="">Tipo de propiedad</option>
+                    <option value="casa">Casa</option>
+                    <option value="apartamento">Apartamento</option>
+                    <option value="terreno">Terreno</option>
+                    <option value="local">Local Comercial</option>
+                </select>
+                <select>
+                    <option value="">Rango de precio</option>
+                    <option value="1">$50,000 - $100,000</option>
+                    <option value="2">$100,000 - $200,000</option>
+                    <option value="3">$200,000 - $500,000</option>
+                    <option value="4">$500,000+</option>
+                </select>
+                <button>Buscar</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Properties -->
+    <section class="featured" id="propiedades">
+        <div class="container">
+            <h2 class="section-title">Propiedades Destacadas</h2>
+            <div class="properties-grid">
+                <!-- Propiedad 1 -->
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="property-info">
+                        <h3>Casa en Urbanización Los Naranjos</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Caracas, Venezuela</p>
+                        <p><i class="fas fa-bed"></i> 4 Habitaciones | <i class="fas fa-bath"></i> 3 Baños</p>
+                        <p class="property-price">$350,000</p>
+                    </div>
+                </div>
+                
+                <!-- Propiedad 2 -->
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="property-info">
+                        <h3>Apartamento en El Rosal</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Caracas, Venezuela</p>
+                        <p><i class="fas fa-bed"></i> 3 Habitaciones | <i class="fas fa-bath"></i> 2 Baños</p>
+                        <p class="property-price">$280,000</p>
+                    </div>
+                </div>
+                
+                <!-- Propiedad 3 -->
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="property-info">
+                        <h3>Local Comercial en CCCT</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Caracas, Venezuela</p>
+                        <p><i class="fas fa-expand"></i> 120 m²</p>
+                        <p class="property-price">$420,000</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" style="background-color: #003366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 3px;">Ver más propiedades</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Venta de Propiedades</h3>
+                    <p>Asesoría profesional para la venta de tu propiedad al mejor precio del mercado.</p>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Compra Asistida</h3>
+                    <p>Te ayudamos a encontrar la propiedad que se ajuste a tus necesidades y presupuesto.</p>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Tasaciones</h3>
+                    <p>Valuaciones profesionales con metodologías reconocidas internacionalmente.</p>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Asesoría Legal</h3>
+                    <p>Equipo de abogados especializados en bienes raíces para garantizar transacciones seguras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Agents Section -->
+    <section class="agents" id="agentes">
+        <div class="container">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <div class="agents-grid">
+                <!-- Agente 1 -->
+                <div class="agent-card">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="María González" class="agent-photo">
+                    <h3>María González</h3>
+                    <p>Asesora Senior</p>
+                    <p><i class="fas fa-phone"></i> +58 412 5551234</p>
+                    <p><i class="fas fa-envelope"></i> maria@inmoservi.com</p>
+                </div>
+                
+                <!-- Agente 2 -->
+                <div class="agent-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Rodríguez" class="agent-photo">
+                    <h3>Carlos Rodríguez</h3>
+                    <p>Especialista en Locales</p>
+                    <p><i class="fas fa-phone"></i> +58 414 5555678</p>
+                    <p><i class="fas fa-envelope"></i> carlos@inmoservi.com</p>
+                </div>
+                
+                <!-- Agente 3 -->
+                <div class="agent-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Laura Pérez" class="agent-photo">
+                    <h3>Laura Pérez</h3>
+                    <p>Especialista en Residencial</p>
+                    <p><i class="fas fa-phone"></i> +58 416 5559012</p>
+                    <p><i class="fas fa-envelope"></i> laura@inmoservi.com</p>
+                </div>
+                
+                <!-- Agente 4 -->
+                <div class="agent-card">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="José Martínez" class="agent-photo">
+                    <h3>José Martínez</h3>
+                    <p>Director Legal</p>
+                    <p><i class="fas fa-phone"></i> +58 412 5553456</p>
+                    <p><i class="fas fa-envelope"></i> jose@inmoservi.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Century21 INMOSERVI</h2>
+                    <p>Somos parte de la red internacional Century 21, líder mundial en bienes raíces, con presencia en Venezuela desde 2010.</p>
+                    <p>Nuestro equipo de profesionales altamente capacitados ofrece servicios integrales en compra, venta, alquiler y tasación de propiedades, respaldados por los más altos estándares de calidad y ética profesional.</p>
+                    <p>En INMOSERVI nos caracterizamos por:</p>
+                    <ul>
+                        <li>Transparencia en todas nuestras operaciones</li>
+                        <li>Conocimiento profundo del mercado inmobiliario venezolano</li>
+                        <li>Tecnología de punta para la valoración de propiedades</li>
+                        <li>Atención personalizada a cada cliente</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Equipo Century21 INMOSERVI">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonios de Clientes</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"Gracias a Century21 INMOSERVI encontré mi hogar ideal. Su asesoría fue impecable y el proceso mucho más rápido de lo esperado."</p>
+                    <p><strong>- Ana López</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal de Las Mercedes, Edificio INMOSERVI, Piso 3, Caracas</p>
+                    <p><i class="fas fa-phone"></i> +58 212 555-1234</p>
+                    <p><i class="fas fa-envelope"></i> info@inmoservi.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 8:30am - 5:30pm</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form>
+                        <input type="text" placeholder="Nombre" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="tel" placeholder="Teléfono">
+                        <textarea placeholder="Mensaje" rows="4" required></textarea>
+                        <button type="submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="logo-inmoservi-white.png" alt="Century21 INMOSERVI" class="footer-logo">
+                    <p>Especialistas en bienes raíces con los estándares de calidad Century 21 y el conocimiento local de Venezuela.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#propiedades">Propiedades</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#agentes">Agentes</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#">Compra de Propiedades</a></li>
+                        <li><a href="#">Venta de Propiedades</a></li>
+                        <li><a href="#">Alquileres</a></li>
+                        <li><a href="#">Tasaciones</a></li>
+                        <li><a href="#">Asesoría Legal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir nuestras últimas propiedades y noticias.</p>
+                    <form>
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Century21 INMOSERVI. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
